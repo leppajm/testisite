@@ -1,7 +1,7 @@
 <template>
 
  <div class="Dashboard">
-   <h1 class="subheading grey--text">Dashboar</h1>
+   <h1 class="subheading grey--text">Dashboard</h1>
  
     <v-container class= "my-5">
         <v-layout row wrap>
@@ -12,7 +12,7 @@
         <div class="text-center">
             <v-card
             raised>
-            
+
                    <div class="text-center">
                 media center
             </div>
