@@ -45,36 +45,7 @@
                     </v-flex>
 
                 </v-layout>
-                <!-- <v-layout row wrap>
-                    <v-flex>
-                        <div>
-                            <p class="text-center font-weight-light caption my-n1">Stillkuva spotti</p>
-                            <p class="text-center caption my-n1">HINTA € (alv 0%)</p>
-                        </div>
-                        <div class="primary--text subtitle-1 text-center my-n1">
-                            {{thousands_separators(data1.stillPrice)}}
-                        </div>
-                        <div class="pa-3 text-center">
-                            <v-btn rounded x-small color="primary">valitse</v-btn>
-                        </div>
-
-                    </v-flex>
-                    <v-flex>
-                        <div>
-                            <p class="text-center font-weight-light caption my-n1">Videokuva spotti</p>
-                            <p class="text-center caption my-n1">HINTA € (alv 0%)</p>
-                        </div>
-                        <div class="primary--text subtitle-1 text-center my-n1">
-                            {{thousands_separators(data1.videoPrice)}}
-                        </div>
-                        <div class="pa-3 text-center">
-                            <v-btn rounded x-small color="primary">valitse</v-btn>
-                        </div>
-                    </v-flex>
-               
-                    
-                </v-layout> -->
-
+                
                 <div class="text-center">
                     <v-dialog
                     v-model="dialog"
@@ -134,8 +105,6 @@
 </template>
 <script>
 
-
-
 export default {
     
 
@@ -173,6 +142,19 @@ export default {
             },
             
             submitVideo() {
+
+                const orderLine={
+                    // _2 id:n lopussa kertoo että kyseessä on videokuva
+                    id:this.data1.id+'_1',
+                    bAddRemove:!this.valittuVideo,
+                    addType: 'video',
+                    stillPrice: this.data1.videoPrice,
+                    otcValue: this.data1.size
+                }
+
+                // generoi eventti
+                this.$emit('addProdLine',{orderLine})
+                
                 if(this.valittuVideo){
                     this.labelVideo = 'valitse'
                     this.btnCol='primary'
@@ -182,7 +164,20 @@ export default {
                 }
                 this.valittuVideo =! this.valittuVideo; 
             },
+            
             submitStill() {
+
+                const orderLine={
+                    // _1 id:n lopussa kertoo että kyseessä on stillkuva
+                    id:this.data1.id+'_1',
+                    bAddRemove:!this.valittuStill,
+                    addType: 'still',
+                    stillPrice: this.data1.stillPrice,
+                    otcValue: this.data1.size
+                }
+                // generoi eventti
+                this.$emit('addProdLine',{orderLine})
+
                 if(this.valittuStill){
                     this.labelStill = 'valitse'
                     this.btnColStill='primary'
@@ -190,11 +185,15 @@ export default {
                     this.labelStill=' poista '
                     this.btnColStill='green lighten-1'
                 }
+                
                 this.valittuStill =! this.valittuStill; 
-            }
+            },
+            
+           
 
     }
  
     
     }
+    
 </script>

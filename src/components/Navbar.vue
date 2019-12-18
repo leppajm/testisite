@@ -1,21 +1,21 @@
 <template>
     <nav>
         <v-app-bar flat app class="black">
-            <v-app-bar-nav-icon class="grey--text" @click="drawer=!drawer"></v-app-bar-nav-icon>
+          <!--  <v-app-bar-nav-icon class="grey--text" @click="drawer=!drawer"></v-app-bar-nav-icon> -->
             <v-toolbar-title class="text-uppercase grey--text">
                 <span class="font-weight-light">Mainostila</span>
-                <span>myAdds</span>
+                <span> - myAdds</span>
             </v-toolbar-title>
 
             <v-spacer></v-spacer>
 
-            <v-btn text small color="grey">
+            <!-- <v-btn text small color="grey">
                 <span>Sign Out</span>
-                <v-icon right small>exit_to_app</v-icon>
-            </v-btn>
+                <v-icon right small>exit_to_app</v-icon> 
+            </v-btn> -->
         </v-app-bar>
 
-        <v-navigation-drawer app v-model="drawer" class="primary"> 
+        <!-- <v-navigation-drawer app v-model="drawer" class="primary"> 
             <v-list>
                 <v-list-item
                     v-for="link in links"
@@ -32,7 +32,7 @@
                 </v-list-item>
            
             </v-list>
-        </v-navigation-drawer>
+        </v-navigation-drawer> -->
     </nav>
     
 </template>

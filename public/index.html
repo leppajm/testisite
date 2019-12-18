@@ -8,42 +8,16 @@
     <title>add-banner</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
-    <script type="text/javascript">
-        function sendHeight()
-        {
-            if(parent.postMessage)
-            {
-                // replace #wrapper with element that contains 
-                // actual page content
-                var height= document.getElementById('juha').offsetHeight;
-                parent.postMessage(height, '*');
-            }
-        }
-        
-        // Create browser compatible event handler.
-        var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-        var eventer = window[eventMethod];
-        var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
-        
-        // Listen for a message from the iframe.
-        eventer(messageEvent, function(e) {
-        
-            if (isNaN(e.data)) return;
-        
-            sendHeight();
-        
-        }, 
-        false);
-      </script>
+   
   </head>
   <body>
     <script> window.onload = sendHeight();</script>
     <noscript>
       <strong>We're sorry but add-banner doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="#juha">
+   
       <div id="app"></div>
-    </div>
+  
     <!-- built files will be auto injected -->
   </body>
 </html>
